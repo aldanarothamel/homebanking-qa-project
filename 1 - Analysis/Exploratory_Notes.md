@@ -9,7 +9,6 @@ Estimated severity: Low
 Type: Functional
 Status: Reported
 
-----------------
 Fecha: 03/03/2026
 Ambiente: Chrome 122
 Versión: v3.0 (según documentación)
@@ -29,8 +28,6 @@ Status: Under Monitoring.
 Notes:
 After approximately 5 attempts, the issue could no longer be reproduced.
 Monitoring is ongoing to identify intermittent patterns.
-
-----------------
 
 Se detectó comportamiento extraño en logout el día 4/3/2026
 La app no limpia sesion correctamente. Despues de aproximadamente 5 intentos no se pudo reproducir posteriormente.
