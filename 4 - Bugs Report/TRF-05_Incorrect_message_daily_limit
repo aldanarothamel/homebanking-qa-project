@@ -1,0 +1,97 @@
+ID TRF-05
+Title: Incorrect error message when exceeding the cumulative daily transfer limit
+Type: Functional Bug – Messaging
+Severity: Medium
+Priority: Medium
+
+Environment:
+* Application: Online Banking Web
+* Version: v3.0
+* Specified Daily Limit: $100,000
+* Browser: Chrome
+* Date Detected: 03/04/2026
+
+Description:
+When attempting a transfer where the amount causes the daily cumulative total to exceed the $100,000 limit,
+the system correctly blocks the operation. However, it displays a message indicating that the limit has already been exceeded,
+even if the current cumulative total has not yet reached that limit.
+The message fails to distinguish between:
+* Having already reached the limit.
+* Attempting to exceed the limit with the current operation.
+
+Preconditions:
+* User is authenticated.
+* The user has already performed cumulative transfers totaling $51,000.
+
+Steps to Reproduce:
+1. Perform a transfer for $51,000.
+2. Attempt a new transfer for $50,000 (Hypothetical total: $101,000).
+3. Confirm the operation.
+
+Actual Result:
+* Transfer is blocked (Correct).
+* Message states: “Daily limit has already been reached.”
+* Note: The actual cumulative total before the operation was only $51,000.
+
+Expected Result:
+The system should:
+* Inform the user that the entered amount exceeds the remaining daily limit.
+* Or indicate the remaining daily balance available.
+*Correct Example: “The amount entered exceeds your available limit for today. Remaining balance: $49,000.”
+
+Impact:
+* Causes user confusion.
+* Incorrect communication of business rules.
+* May lead to unnecessary customer support inquiries.
+* Does not affect financial integrity, but negatively impacts user experience (UX) and system clarity.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+ID TRF-05
+Título: Mensaje incorrecto al superar el límite diario acumulado en transferencias
+Tipo: Bug Funcional – Mensajería
+Severidad: Media
+Prioridad: Media
+
+Ambiente:
+* Aplicación: Home Banking Web
+* Versión documentada: v3.0 
+* Límite diario especificado: $100.000 
+* Navegador: Chrome
+* Fecha detección: 04/03/2026
+
+Descripción: 
+Al intentar realizar una transferencia cuyo monto provoca que el acumulado diario supere el límite permitido de $100.000, 
+el sistema bloquea correctamente la operación, pero muestra un mensaje indicando que el límite ya fue excedido, 
+aun cuando el acumulado actual aún no ha alcanzado dicho límite.
+El mensaje no distingue entre:
+* Haber alcanzado el límite
+* Intentar superarlo con la nueva operación
+
+Precondiciones:
+* Usuario autenticado
+* Haber realizado transferencias acumuladas por $51.000
+
+Pasos para Reproducir:
+1. Realizar transferencia por $51.000
+2. Intentar nueva transferencia por $50.000
+Total hipotético: $101.000
+3. Confirmar operación
+
+Resultado Actual:
+* Transferencia bloqueada (correcto)
+* Mensaje indica que “ya se alcanzó el límite diario”
+Cuando el acumulado real antes de la operación era $51.000.
+
+Resultado Esperado:
+El sistema debería:
+* Informar que el monto ingresado supera el límite diario disponible
+* O indicar el monto restante disponible del día
+Ejemplo correcto:
+> “El monto ingresado supera el límite disponible para hoy. Disponible restante: $49.000”
+
+Impacto:
+* Genera confusión en el usuario
+* Comunicación incorrecta de regla de negocio
+* Puede provocar reclamos innecesarios
+No afecta la integridad financiera, pero afecta la experiencia y claridad del sistema.
