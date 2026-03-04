@@ -1,0 +1,144 @@
+ID LOAN-07
+Title: The system allows withdrawing a loan with insufficient balance and changes the status to “retracted” without debiting the corresponding amount
+Type: Functional Bug – Business Rule
+Severity: CRITICAL
+Priority: High (Blocking for release)
+
+Environment:
+* Application: Home Banking Web
+* Documented version: v3.0
+* Reference Test Plan: v2.0
+* Browser: Chrome
+* Persistence: localStorage (mock)
+* Detection date: 04/03/2026
+
+Description:
+When trying to withdraw an active loan with insufficient balance in the selected account, the system:
+* Allows completing the operation
+* Changes the loan status to “retracted”
+* Records the transaction as a withdrawal
+* Shows a success message
+* Does not perform the corresponding debit
+
+This violates the business rule defined for sufficient balance validation in the withdrawal process.
+
+Expected Business Rule:
+According to Functional Specification v3.0:
+> Validation: Sufficient balance in debit account
+And according to the Test Plan:
+> CP-LOAN-06: Withdrawal - Insufficient Balance
+
+The system should not allow completing the withdrawal if the balance is insufficient.
+
+Preconditions:
+* Authenticated user
+* Active loan of $100,000
+* Available balance in selected account: $90,000
+
+Steps to Reproduce:
+1. Access the Loans module
+2. Request a loan of $100,000
+3. Confirm accreditation
+4. Reduce available balance below the loan amount (example: $90,000)
+5. Click on “Withdraw”
+6. Select account with insufficient balance
+7. Confirm operation
+
+Actual Result:
+* The loan changes status to “retracted”
+* Disappears from the list of active loans
+* Withdrawal movement is recorded
+* Success message is displayed
+* NO amount is debited from the account
+* Balance remains intact.
+
+Expected Result:
+* The system must validate sufficient balance before confirming
+* If balance < original amount:
+* Display message: “Insufficient balance”
+* Do not allow continuation
+* Do not change loan status
+* Do not record transaction
+
+Impact:
+* Allows improper cancellation of loans
+* Generates financial inconsistency
+* Produces simulated economic loss
+* System state becomes inconsistent
+This defect compromises the integrity of the system's financial logic.
+
+Status: Reported – Requires immediate correction
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+ID LOAN-07
+Título: El sistema permite desistir un préstamo con saldo insuficiente y cambia el estado a “retracted” sin debitar el monto correspondiente
+Tipo: Bug Funcional – Regla de Negocio
+Severidad: CRÍTICA
+Prioridad: Alta (Bloqueante para release)
+
+Ambiente:
+* Aplicación: Home Banking Web
+* Versión documentada: v3.0 
+* Plan de Pruebas referencia: v2.0 
+* Navegador: Chrome
+* Persistencia: localStorage (mock)
+* Fecha detección: 04/03/2026
+
+Descripción:
+Al intentar desistir un préstamo activo con saldo insuficiente en la cuenta seleccionada, el sistema:
+* Permite completar la operación
+* Cambia el estado del préstamo a “retracted”
+* Registra el movimiento como desistimiento
+* Muestra mensaje de éxito
+* No realiza el débito correspondiente
+
+Esto viola la regla de negocio definida para la validación de saldo suficiente en el proceso de desistimiento.
+
+Regla de Negocio Esperada:
+Según Especificación Funcional v3.0:
+> Validación: Saldo suficiente en cuenta de débito 
+Y según el Plan de Pruebas:
+> CP-LOAN-06: Desistimiento - Saldo Insuficiente 
+
+El sistema no debería permitir completar el desistimiento si el saldo es insuficiente.
+
+Precondiciones:
+* Usuario autenticado
+* Préstamo activo por $100.000
+* Saldo disponible en cuenta seleccionada: $90.000
+
+Pasos para Reproducir:
+1. Acceder al módulo Préstamos
+2. Solicitar préstamo por $100.000
+3. Confirmar acreditación
+4. Reducir saldo disponible por debajo del monto del préstamo (ejemplo: $90.000)
+5. Click en “Desistir”
+6. Seleccionar cuenta con saldo insuficiente
+7. Confirmar operación
+
+Resultado Actual:
+* El préstamo cambia estado a “retracted”
+* Desaparece del listado de préstamos activos
+* Se registra movimiento de desistimiento
+* Se muestra mensaje de éxito
+* NO se debita ningún monto de la cuenta
+* Saldo permanece intacto.
+
+Resultado Esperado:
+* El sistema debe validar saldo suficiente antes de confirmar
+* Si saldo < monto original:
+  * Mostrar mensaje: “Saldo insuficiente”
+  * No permitir continuar
+  * No cambiar estado del préstamo
+  * No registrar movimiento
+
+Impacto:
+* Permite cancelación indebida de préstamos
+* Genera inconsistencia financiera
+* Produce pérdida económica simulada
+* Estado del sistema queda incoherente
+Este defecto compromete la integridad de la lógica financiera del sistema.
+
+Estado: Reportado – Requiere corrección inmediata
+
