@@ -1,0 +1,135 @@
+CP-AUTH-01: Successful Login
+Priority: HIGH  
+Objective: Verify that the user can authenticate correctly using valid credentials.  
+Data: Username: `demo` / Password: `demo123`  
+
+Steps: 
+1. Enter username and password.  
+2. Click on Login/Sign In.  
+
+Expected Result: System stores the session.  
+Redirects to the Dashboard.  
+Displays the Logout button.  
+
+---
+
+CP-AUTH-02: Login with Invalid Credentials
+Priority: HIGH  
+Objective: Verify that the system rejects incorrect credentials.  
+Data: Invalid credentials.  
+
+Steps: 
+1. Enter incorrect credentials.  
+2. Click on Login/Sign In.  
+
+Expected Result: Error message is displayed.  
+User remains on the Login page.  
+
+---
+
+CP-AUTH-03: Account Lockout due to Failed Attempts
+Priority: HIGH  
+Objective: Verify account lockout after 3 failed attempts.  
+Data: Invalid credentials.  
+
+Steps: 
+1. Attempt to login 3 times using incorrect credentials.  
+
+Expected Result: Lockout message is displayed.  
+Further attempts are not permitted.  
+
+---
+
+CP-AUTH-04: Successful Logout
+Priority: HIGH  
+Objective: Verify correct session termination.  
+Data: Authenticated user.
+
+Steps: 
+1. Click on Logout.  
+2. Confirm action in the modal window.  
+
+Expected Result: Session is cleared/wiped.  
+Redirects to the Login page.  
+Documentation panel is displayed.  
+
+---
+
+CP-AUTH-05: Documentation Panel
+Priority: MEDIUM  
+Objective: Verify the floating documentation panel.  
+Data: Login Screen.  
+
+Steps: 
+1. Verify the floating panel.  
+2. Verify visual effects.  
+3. Click on the links.  
+
+Expected Result: Panel is visible only on the Login screen.  
+Buttons exhibit hover effects.  
+Links open in a new tab.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CP-AUTH-01: Login Exitoso
+Prioridad: ALTA
+Objetivo: Verificar que el usuario puede autenticarse correctamente con credenciales válidas.
+Datos: Usuario: demo / Contraseña: demo123
+
+Pasos:
+1. Ingresar usuario y contraseña 2. Click en Ingresar
+
+Esperado:
+- Sistema almacena sesión - Redirige al Dashboard - Muestra botón Salir
+
+---
+
+CP-AUTH-02: Login con Credenciales Inválidas
+Prioridad: ALTA
+Objetivo: Verificar que el sistema rechaza credenciales incorrectas.
+Datos: Credenciales inválidas
+
+Pasos:
+1. Ingresar credenciales incorrectas 2. Click en Ingresar
+
+Esperado:
+- Muestra mensaje de error - Usuario permanece en Login
+
+---
+
+CP-AUTH-03: Bloqueo por Intentos Fallidos
+Prioridad: ALTA
+Objetivo: Verificar bloqueo tras 3 intentos fallidos.
+Datos: Credenciales inválidas
+
+Pasos:
+1. Intentar login 3 veces con credenciales incorrectas
+
+Esperado:
+- Muestra mensaje de bloqueo - No permite más intentos
+
+---
+
+CP-AUTH-04: Logout Exitoso
+Prioridad: ALTA
+Objetivo: Verificar cierre de sesión correcto.
+Datos: Usuario autenticado
+
+Pasos:
+1. Click en Salir 2. Confirmar en modal
+
+Esperado:
+- Limpia sesión - Redirige a Login - Muestra panel de documentación
+
+---
+
+CP-AUTH-05: Panel de Documentación
+Prioridad: MEDIA
+Objetivo: Verificar panel flotante de documentación.
+Datos: Pantalla de Login
+
+Pasos:
+1. Verificar panel flotante 2. Verificar efectos visuales 3. Click en enlaces
+
+Esperado:
+- Panel visible solo en Login - Botones con efecto hover - Links abren en nueva pestaña
