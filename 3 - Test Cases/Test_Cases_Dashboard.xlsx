@@ -1,4 +1,4 @@
-CP-DASH-01: Product Display
+TC-DASH-01: Product Display
 Priority: HIGH  
 Objective: Verify that the 3 product cards are displayed correctly.  
 Data: Authenticated user.  
@@ -12,7 +12,7 @@ Credit Card card is visible.
 
 ---
 
-CP-DASH-02: Recent Transactions
+TC-DASH-02: Recent Transactions
 Priority: MEDIUM  
 Objective: Verify the transaction list.  
 Data: Processed transactions.  
@@ -28,7 +28,7 @@ Description and amount are visible.
 
 ---
 
-CP-DASH-03: Balance Reset NEW FEATURE
+TC-DASH-03: Balance Reset NEW FEATURE
 Priority: HIGH  
 Objective: Verify the restoration of initial values.  
 Data: Modified balances.  
