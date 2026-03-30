@@ -1,4 +1,4 @@
-CP-AUTH-01: Successful Login
+TC-AUTH-01: Successful Login
 Priority: HIGH  
 Objective: Verify that the user can authenticate correctly using valid credentials.  
 Data: Username: `demo` / Password: `demo123`  
@@ -13,7 +13,7 @@ Displays the Logout button.
 
 ---
 
-CP-AUTH-02: Login with Invalid Credentials
+TC-AUTH-02: Login with Invalid Credentials
 Priority: HIGH  
 Objective: Verify that the system rejects incorrect credentials.  
 Data: Invalid credentials.  
@@ -27,7 +27,7 @@ User remains on the Login page.
 
 ---
 
-CP-AUTH-03: Account Lockout due to Failed Attempts
+TC-AUTH-03: Account Lockout due to Failed Attempts
 Priority: HIGH  
 Objective: Verify account lockout after 3 failed attempts.  
 Data: Invalid credentials.  
@@ -40,7 +40,7 @@ Further attempts are not permitted.
 
 ---
 
-CP-AUTH-04: Successful Logout
+TC-AUTH-04: Successful Logout
 Priority: HIGH  
 Objective: Verify correct session termination.  
 Data: Authenticated user.
@@ -55,7 +55,7 @@ Documentation panel is displayed.
 
 ---
 
-CP-AUTH-05: Documentation Panel
+TC-AUTH-05: Documentation Panel
 Priority: MEDIUM  
 Objective: Verify the floating documentation panel.  
 Data: Login Screen.  
