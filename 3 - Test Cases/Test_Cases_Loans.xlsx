@@ -1,0 +1,175 @@
+TC-LOAN-01: Successful Loan Request
+Priority: HIGH  
+Objective: Verify the correct processing of a loan request.  
+Data: Amount: `$100,000` / Installments: `12` / Account: `Checking Account (CC)`  
+
+Steps:
+1. Navigate to Loans.  
+2. Click on Request Loan.  
+3. Complete the required data.  
+4. Confirm the operation.  
+
+Expected Result: Checking Account balance increases by `$100,000`.  
+Loan appears under Active Loans.  
+Displays the amount, installments, and date.  
+
+---
+
+TC-LOAN-02: Maximum Amount Validation
+Priority: HIGH  
+Objective: Verify the `$500,000` limit.  
+Data: Amount: `$500,001`  
+
+Steps:
+1. Attempt to request a loan for `$500,001`.  
+
+Expected Result: Error message: "Maximum amount is $500,000".  
+System prevents proceeding with the request.  
+
+---
+
+TC-LOAN-03: Full Cancellation (Pay Total)
+Priority: HIGH  
+Objective: Verify full payment (Principal + Interest).  
+Data: Active loan.  
+
+Steps: 
+1. Click on Pay Total.  
+2. Verify the total amount.  
+3. Confirm payment.  
+
+Expected Result: Debits the total amount from the account.  
+Loan status changes to `paid`.  
+Loan disappears from the Active section.  
+Confirmation message is displayed.  
+
+---
+
+TC-LOAN-04: Right of Withdrawal <= 10 days  
+Priority: CRITICAL  
+Objective: Verify that the "Withdraw" (Desistir) button appears ONLY if the loan is <= 10 days old.  
+Data: New and old loans.  
+
+Steps:
+1. Request a new loan.  
+2. Verify available buttons.  
+3. Check a loan older than 10 days.  
+
+Expected Result: NEW Loan: Displays both Withdraw and Pay Total.  
+OLD Loan: Displays ONLY Pay Total.  
+Withdraw button is NOT present for old loans.  
+
+---
+
+TC-LOAN-05: Successful Withdrawal  CRITICAL - NEW FEATURE 
+Priority: CRITICAL  
+Objective: Verify the exact return of the original principal amount.  
+Data: Loan: `$50,000` / Account Balance: `$60,000`  
+
+Steps: 
+1. Click on Withdraw (Desistir).  
+2. Verify the amount matches the original principal.  
+3. Select the account.  
+4. Confirm the operation.  
+
+Expected Result: CRITICAL: Amount equals the Original Principal WITHOUT interest.  
+Debits exactly `$50,000`.  
+Loan status changes to `retracted`.  
+Loan disappears from the Active section.  
+Transaction is recorded in the history.  
+Success message is displayed.  
+
+---
+
+TC-LOAN-06: Withdrawal - Insufficient Funds
+Priority: HIGH  
+Objective: Verify balance validation during withdrawal.  
+Data: Loan: `$50,000` / Account Balance: `$1,000`  
+
+Steps:
+1. Attempt to withdraw (cancel) the loan.  
+2. Select an account with insufficient funds.  
+
+Expected Result: Error message: "Insufficient balance".  
+System prevents proceeding with the cancellation.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CP-LOAN-01: Solicitud de Préstamo Exitosa
+Prioridad:ALTA
+Objetivo:Verificar solicitud correcta de préstamo.
+Datos:Monto: $100,000 / Cuotas: 12 / Cuenta: CC
+
+Pasos:
+1. Ir a Préstamos 2. Solicitar Préstamo 3. Completar datos 4. Confirmar
+
+Esperado:
+- Saldo CC aumenta $100,000 - Aparece en Préstamos Activos - Muestra monto, cuotas y fecha
+
+---
+
+CP-LOAN-02: Validación Monto Máximo
+Prioridad: ALTA
+Objetivo: Verificar límite de $500,000.
+Datos: Monto: $500,001
+
+Pasos:
+1. Intentar solicitar $500,001
+
+Esperado:
+- Error: Monto máximo $500,000 - No permite continuar
+
+---
+
+CP-LOAN-03: Cancelación Total (Pagar Total)
+Prioridad: ALTA
+Objetivo: Verificar pago total (Capital + Intereses).
+Datos: Préstamo activo
+
+Pasos:
+1. Click en Pagar Total 2. Verificar monto 3. Confirmar
+
+Esperado:
+- Debita total de la cuenta - Préstamo cambia a paid - Desaparece de Activos - Mensaje de confirmación
+
+---
+
+CP-LOAN-04: Desistimiento <= 10 días *** CRÍTICO ***
+Prioridad: CRÍTICA
+Objetivo: Verificar que botón Desistir aparece SOLO si préstamo <= 10 días.
+Datos: Préstamos nuevos y antiguos
+
+Pasos:
+1. Solicitar préstamo nuevo 2. Verificar botones 3. Verificar préstamo > 10 días
+
+Esperado:
+- Préstamo NUEVO: muestra Desistir + Pagar Total - Préstamo ANTIGUO: SOLO Pagar Total - Botón Desistir NO en antiguos
+
+---
+
+CP-LOAN-05: Desistimiento Exitoso *** CRÍTICO - NUEVA FUNCIONALIDAD ***
+Prioridad: CRÍTICA
+Objetivo: Verificar devolución exacta del monto original.
+Datos: Préstamo $50,000 / Saldo: $60,000
+
+Pasos:
+1. Click en Desistir 2. Verificar monto = Original 3. Seleccionar cuenta 4. Confirmar
+
+Esperado:
+- CRÍTICO: Monto = Original SIN intereses - Debita exactamente $50,000 - Estado = retracted - Desaparece de Activos - Registra movimiento - Mensaje de éxito
+
+---
+
+CP-LOAN-06: Desistimiento - Saldo Insuficiente
+Prioridad: ALTA
+Objetivo: Verificar validación de saldo.
+Datos:Préstamo $50,000 / Saldo: $1,000
+
+Pasos:
+1. Intentar desistir 2. Seleccionar cuenta sin saldo
+
+Esperado:
+- Error: Saldo insuficiente - No permite continuar
+
+
+
