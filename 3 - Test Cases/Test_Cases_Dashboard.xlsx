@@ -1,0 +1,84 @@
+CP-DASH-01: Product Display
+Priority: HIGH  
+Objective: Verify that the 3 product cards are displayed correctly.  
+Data: Authenticated user.  
+
+Steps:
+1. Verify Dashboard screen.  
+
+Expected Result: Checking Account card is visible.  
+Savings Account card is visible.  
+Credit Card card is visible.  
+
+---
+
+CP-DASH-02: Recent Transactions
+Priority: MEDIUM  
+Objective: Verify the transaction list.  
+Data: Processed transactions.  
+
+Steps:
+1. Perform transactions.  
+2. Return to the **Dashboard**.  
+3. Verify the section.  
+
+Expected Result: Displays the last 10 transactions.  
+Dates are in relative format (e.g., "Yesterday", "2 days ago").  
+Description and amount are visible.  
+
+---
+
+CP-DASH-03: Balance Reset NEW FEATURE
+Priority: HIGH  
+Objective: Verify the restoration of initial values.  
+Data: Modified balances.  
+
+Steps:
+1. Note current balances.  
+2. Click on Reset Balances (Restablecer Saldos).  
+3. Confirm the action.  
+
+Expected Result: Checking Account: $500,000  
+Savings Account: $250,000  
+Available Credit: $45,000  
+User is NOT logged out.  
+Page does NOT reload (SPA behavior).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+CP-DASH-01: Visualización de Productos
+Prioridad: ALTA
+Objetivo: Verificar que se muestran las 3 tarjetas de productos.
+Datos: Usuario autenticado
+
+Pasos:
+1. Verificar Dashboard
+
+Esperado:
+- Tarjeta Cuenta Corriente visible - Tarjeta Caja de Ahorro visible - Tarjeta Tarjeta de Crédito visible
+
+---
+
+CP-DASH-02: Últimos Movimientos
+Prioridad: MEDIA
+Objetivo: Verificar listado de movimientos.
+Datos: Transacciones realizadas
+
+Pasos:
+1. Realizar transacciones 2. Volver al Dashboard 3. Verificar sección
+
+Esperado:
+- Muestra últimas 10 transacciones - Fechas en formato relativo - Descripción y monto visibles
+
+---
+
+CP-DASH-03: Reset de Saldos *** NUEVA FUNCIONALIDAD ***
+Prioridad: ALTA
+Objetivo: Verificar restauración de valores iniciales.
+Datos: Saldos modificados
+
+Pasos:
+1. Anotar saldos actuales 2. Click en Restablecer Saldos 3. Confirmar
+
+Esperado:
+- Cuenta Corriente: $500,000 - Caja Ahorro: $250,000 - TC Disponible: $45,000 - Usuario NO se desloguea - Página NO se recarga
