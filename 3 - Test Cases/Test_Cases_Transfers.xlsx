@@ -1,0 +1,109 @@
+TC-TRF-01: Successful Own-Account Transfer
+Priority: HIGH  
+Objective: Verify transfer between own accounts.  
+Data: `$10,000` from Checking Account (CC) to Savings Account (CA) 
+
+Steps: 
+1. Navigate to Transfers.  
+2. Select source and destination accounts.  
+3. Enter the amount.  
+4. Confirm the operation.  
+
+Expected Result: CC is debited by `$10,000`.  
+CA is credited by `$10,000`.  
+Transaction appears in Movements/Activity.  
+
+---
+
+TC-TRF-02: Per-Transaction Limit Validation
+Priority: HIGH  
+Objective: Verify the `$50,000` single transaction limit.  
+Data: Amount: `$50,001`  
+
+Steps: 
+1. Attempt to transfer `$50,001`.  
+
+Expected Result: Error message: "Maximum limit is $50,000".  
+Transfer is not executed.  
+
+---
+
+TC-TRF-03: Daily Limit Validation
+Priority: HIGH  
+Objective: Verify the daily cumulative limit of `$100,000`.  
+Data: 3 transfers of `$40,000` each.  
+
+Steps: 
+1. Transfer `$40,000` (OK).  
+2. Transfer `$40,000` (OK - Total `$80k`).  
+3. Attempt to transfer another `$40,000`.  
+
+Expected Result: 
+1st Transfer: Successful.  
+2nd Transfer: Successful.  
+3rd Transfer: Error message: "Daily limit exceeded".  
+
+---
+
+TC-TRF-04: Invalid CBU Validation
+Priority: MEDIUM  
+Objective: Verify CBU format validation.  
+Data: CBU: `123` (invalid)  
+
+Steps:
+1. Select Third-Party Transfer.  
+2. Enter a short/incomplete CBU.  
+
+Expected Result: Error message: "Invalid CBU".
+
+----------------------------------------------------------------------------------------------------------------------
+
+CP-TRF-01: Transferencia Propia Exitosa
+Prioridad: ALTA
+Objetivo: Verificar transferencia entre cuentas propias.
+Datos: $10,000 de CC a CA
+
+Pasos:
+1. Ir a Transferencias 2. Seleccionar origen y destino 3. Ingresar monto 4. Confirmar
+
+Esperado:
+- CC debita $10,000 - CA acredita $10,000 - Aparece en Movimientos
+
+---
+
+CP-TRF-02: Validación Límite por Operación
+Prioridad: ALTA
+Objetivo: Verificar límite de $50,000.
+Datos: Monto: $50,001
+
+Pasos:
+1. Intentar transferir $50,001
+
+Esperado:
+- Error: Máximo $50,000 - No ejecuta transferencia
+
+---
+
+CP-TRF-03: Validación Límite Diario
+Prioridad: ALTA
+Objetivo: Verificar límite diario $100,000.
+Datos: 3 transferencias de $40,000
+
+Pasos:
+1. Transferir $40,000 (OK) 2. Transferir $40,000 (OK - $80k) 3. Transferir $40,000
+
+Esperado:
+- 1ra: Exitosa - 2da: Exitosa - 3ra: Error límite diario
+
+---
+
+CP-TRF-04: Validación CBU Inválido
+Prioridad: MEDIA
+Objetivo: Verificar validación de CBU.
+Datos: CBU: 123 (inválido)
+
+Pasos:
+1. Transferencia a terceros 2. Ingresar CBU corto
+
+Esperado:
+- Error: CBU inválido
